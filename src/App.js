@@ -23,9 +23,7 @@ class App extends React.Component {
           completed: false
         }
       ],
-      task: "",
-      id: Date.now(),
-      completed: false
+      task: ""
     };
   }
 
@@ -34,13 +32,11 @@ class App extends React.Component {
     const newTask = {
       task: this.state.task,
       id: Date.now(),
-      completed: this.state.completed
+      completed: false
     };
     this.setState({
       taskData: [...this.state.taskData, newTask],
-      task: "",
-      id: Date.now(),
-      completed: false
+      task: ""
     });
   };
 
