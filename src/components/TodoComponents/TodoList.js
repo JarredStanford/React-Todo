@@ -7,7 +7,7 @@ class TodoList extends React.Component {
   render() {
     return (
       <div>
-        {taskData.map(task => (
+        {this.props.tasks.map(task => (
           <Todo taskOnProps={task} />
         ))}
       </div>

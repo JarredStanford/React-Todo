@@ -3,16 +3,17 @@ import React from "react";
 class TodoForm extends React.Component {
   render() {
     return (
-      <form onSubmit={this.addTask}>
+      <form onSubmit={this.props.add}>
         <input
           placeholder="Task"
-          onChange={this.handleChanges}
-          value={this.task}
+          onChange={this.props.handle}
+          value={this.props.task}
           name="task"
         />
+        <button>Add Task</button>
+        <button>Clear Input</button>
       </form>
     );
   }
 }
-
 export default TodoForm;

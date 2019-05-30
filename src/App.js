@@ -1,9 +1,6 @@
 import React from "react";
-import { tasks } from "./components/TodoComponents/data";
-//import TodoForm from "./components/TodoComponents/TodoForm";
-import Todo from "./components/TodoComponents/Todo";
-
-import "./App.css";
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -12,10 +9,21 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      taskData: tasks,
+      taskData: [
+        {
+          task: "Organize Garage",
+          id: Date.now(),
+          completed: false
+        },
+        {
+          task: "Bake Cookies",
+          id: Date.now(),
+          completed: false
+        }
+      ],
       task: "",
-      completed: false,
-      ID: ""
+      id: "",
+      completed: ""
     };
   }
 
@@ -45,21 +53,12 @@ class App extends React.Component {
     return (
       <div>
         <h1>Todo List: MVP</h1>
-        <div>
-          {this.state.taskData.map(task => (
-            <Todo taskOnProps={task} />
-          ))}
-        </div>
-        <form onSubmit={this.addTask}>
-          <input
-            placeholder="Task"
-            onChange={this.handleChanges}
-            value={this.state.task}
-            name="task"
-          />
-          <button>Add Task</button>
-          <button>Clear Input</button>
-        </form>
+        <TodoList tasks={this.state.taskData} />
+        <TodoForm
+          add={this.addTask}
+          handle={this.handleChanges}
+          task={this.state.task}
+        />
       </div>
     );
   }

@@ -102,3 +102,33 @@ class HogwartsStudents extends React.Component {
 }
 
 export default HogwartsStudents;
+
+<form onSubmit={this.addTask}>
+<input
+  placeholder="Task"
+  onChange={this.handleChanges}
+  value={this.state.task}
+  name="task"
+/>
+<button>Add Task</button>
+<button>Clear Input</button>
+</form>
+
+<TodoList tasks={this.state.taskData} />
+
+class TodoForm extends React.Component {
+  render() {
+    return (
+      <form onSubmit={this.addToDo}>
+        <input
+          placeholder="Task"
+          onChange={this.handleChanges}
+          value={this.props.task}
+          name="task"
+        />
+        <button>Add Task</button>
+        <button>Clear Input</button>
+      </form>
+    );
+  }
+}
